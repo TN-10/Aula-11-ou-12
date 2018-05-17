@@ -66,21 +66,36 @@ namespace Aula10 {
         //Se estivessemos no program, por exemplo, aí sim, metíamos "Bag" dentro
         //dos (), ou seja, o sitio onde procurar.
         public bool ContainsItemOfType<T>()
-        { 
-            //Estamos a percorrer as cenas dentro do saco, daí "this"
+        {
+            //Estamos a percorrer as cenas dentro da Bag, daí "this"
             foreach (IStuff i in this)
 
             {
 
-            if(i is T) return true;
+                if (i is T) return true;
 
             }
 
-    return false;
+            return false;
+        }
 
+        public IEnumerable<T> GetItemsOfType<T>()
+                              where T: class, IStuff
+        {
+            List<T> lst = new List<T>();
+            foreach(IStuff i in this)
+            {
+                if (i is T)
+                {
+                    lst.Add (i as T);
+
+                }
+               
+            }
+            return lst;
+        }
     }
 
             
 
     }
-}

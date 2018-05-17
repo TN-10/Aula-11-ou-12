@@ -94,6 +94,18 @@ namespace Aula10 {
             }
             return lst;
         }
+        public IEnumerable<T> BetterGetItemsOfType<T>()
+                              where T: IStuff
+        {
+            foreach (IStuff i in this)
+            {
+                if (i is T)
+                {
+                    //Estamos a converter i em T. 
+                    yield return (T)i;
+                }
+            }
+        }
     }
 
             

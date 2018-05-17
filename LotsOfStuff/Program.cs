@@ -87,6 +87,12 @@ namespace Aula10
                 Console.WriteLine(f);
             }
 
+            //Pode ser IStuff pois Food é uma IStuff
+            foreach (Gun g in p.BagOfStuff.BetterGetItemsOfType<Gun>())
+            {
+                Console.WriteLine(g);
+            }
+
         }
     }
 }
